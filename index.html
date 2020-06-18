@@ -38,7 +38,7 @@
           <div class="col" id="searched-cities"></div>
         </div>
       </div>
-      <div class="col-sm-8">
+      <div class="col-sm-8" id="forecast">
         <h1>Results will go here</h1>
       </div>
     </div>
@@ -71,6 +71,13 @@
             }
           }
         }
+
+        function generateForecast() {
+          $("#forecast").empty();
+          var h1El = $("<h1>");
+          h1El.text("My forecast should go here!");
+          $("#forecast").append(h1El);
+        }
         // FUNCTION CALLS
         createCityButtons();
 
@@ -84,6 +91,7 @@
             arrayOfCities.push(inputValue);
             localStorage.setItem("cities", JSON.stringify(arrayOfCities));
             $("#search-input").val("");
+            generateForecast();
             createCityButtons();
           }
         });
